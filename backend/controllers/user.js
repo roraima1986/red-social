@@ -11,6 +11,7 @@ const Publication = require("../models/publication");
 // importar servicios
 const jwt = require("../services/jwt");
 const followService = require("../services/followService");
+const validate = require("../helpers/validate");
 
 // acciones de prueba
 const pruebaUser = (req, res) => {
@@ -31,7 +32,18 @@ const register = (req, res) => {
             status: "error",
             message: "Faltan datos por enviar",
         })
-    }     
+    }  
+    
+    // Validacion avanzada
+    try {
+        validate(params);
+    } catch(error) {
+        return res.status(400).json({
+            status: "error",
+            message: "Validacion no superada",
+        })
+    }
+    
 
     // control usuarios duplicados
     User.find({ $or: [
@@ -47,6 +59,8 @@ const register = (req, res) => {
                 message: "El usuario ya existe"
             })
         } 
+
+        
 
         // cifrar la contraseña
         let pwd = await bcrypt.hash(params.password, 10);
