@@ -13,7 +13,8 @@
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- [React](https://reactjs.org/) - JS library
-- [Express](https://expressjs.com/) - ExpressJS 
-- [MongoDB](https://www.mongodb.com/) - MongoDB Database
+- [React](https://reactjs.org/)
+- [NodeJS](https://nodejs.org/) 
+- [Express](https://expressjs.com/)  
+- [MongoDB](https://www.mongodb.com/) 
 
